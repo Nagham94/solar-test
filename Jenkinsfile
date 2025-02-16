@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         nodejs 'nodejs-23.7.0'
+        customTool 'python3'
     }
     // environment {}
     // options {}
