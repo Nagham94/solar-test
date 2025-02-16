@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         nodejs 'nodejs-23.7.0'
+        go 'Go-1.24'
     }
     // environment {}
     // options {}
