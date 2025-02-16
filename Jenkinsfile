@@ -6,7 +6,7 @@ agent any
     environment {
         SONAR_SCANNER_HOME = tool 'sonarqube-scanner-6.1.0.447'
     }
-    options {}
+   // options {}
     stages {
         stage('Installing Dependencies') {
             options { timestamps() }
