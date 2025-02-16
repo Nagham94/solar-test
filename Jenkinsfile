@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    tools {}
-    environment {}
-    options {}
+    // tools {}
+    // environment {}
+    // options {}
     stages {
         stage('Installing Dependencies') {
             options { timestamps() }
