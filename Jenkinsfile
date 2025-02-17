@@ -34,7 +34,7 @@ agent any
                     apt-get clean && rm -rf /var/lib/apt/lists/*
                 '''
                 }
-                } 
+                } }
             }
         }
         stage('SAST - SonarQube') {
