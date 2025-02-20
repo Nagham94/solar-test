@@ -51,6 +51,9 @@ pipeline {
                         apt-get clean && rm -rf /var/lib/apt/lists/*
                         '''
                     }
+                    sh '''
+                      java --version
+                    '''
                 } 
             }
         }
