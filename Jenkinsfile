@@ -3,6 +3,7 @@ pipeline {
 
     tools {
         nodejs 'nodejs-23.7.0'
+        jdk 'openjdk-17'
     }
     
     environment {
@@ -52,7 +53,7 @@ pipeline {
                         '''
                     }
                     sh '''
-                      java --version
+                      java -version
                     '''
                 } 
             }
