@@ -3,12 +3,14 @@ pipeline {
 
     tools {
         nodejs 'nodejs-23.7.0'
-        jdk 'openjdk-17'
+        jdk 'openjdk-17' // for sonarqube
     }
     
     environment {
         SONAR_SCANNER_HOME = tool 'sonarqube-scanner-6.1.0.447'
     }
+
+   // options {}
 
     stages {
         stage('Installing Dependencies') {
@@ -54,6 +56,29 @@ pipeline {
                     }
                 } 
             }
+        }
+        
+        stage('Dependency Scanning') {
+            stage('OWASP Dependency Check') {
+                        steps {
+                          // check of all vulnerabilities (high, low, medium, critical)
+                          dependencyCheck additionalArguments: '''
+                            --scan \'./\' 
+                            --out \'./\'  
+                            --format \'ALL\' 
+                            --disableYarnAudit \
+                            --prettyPrint''', odcInstallation: 'owasp-depcheck-10'
+
+                        // to fail the build if it found vulnerabilities that exceed the threshold
+                        dependencyCheckPublisher failedTotalCritical: 1, pattern: 'dependency-check-report.xml', stopBuild: false
+
+                        // to publish the HTML report in the UI of blue ocean
+                        publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: './', reportFiles: 'dependency-check-jenkins.html', reportName: 'dependency check HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+
+                        // to publish the test report in the UI of blue ocean
+                        junit allowEmptyResults: true, keepProperties: true, stdioRetention: '', testResults: 'dependency-check-junit.xml'
+                       }
+                    }
         }
 
         stage('SAST - SonarQube') {
