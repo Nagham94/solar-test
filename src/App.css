@@ -1,0 +1,33 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';
+
+.form-wrapper {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.App {
+    margin-top: 30px;
+}
+
+table {
+    margin-top: 50px;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+.no-record {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

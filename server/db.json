@@ -1,0 +1,22 @@
+{
+  "customers": [
+    {
+      "first_name": "Sangeetha",
+      "last_name": "Periyaiah",
+      "email": "sangeesangee93@gmail.com",
+      "phone": "8220867882",
+      "address": "XYZ Street",
+      "description": "Welcome",
+      "id": 1
+    },
+    {
+      "first_name": "Saranya",
+      "last_name": "Periyaiah",
+      "email": "saranyatest@gmail.com",
+      "phone": "8220867234",
+      "address": "ABC Street",
+      "description": "Welcome",
+      "id": 2
+    }
+  ]
+}
