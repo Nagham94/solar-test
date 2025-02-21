@@ -52,9 +52,6 @@ pipeline {
                         apt-get clean && rm -rf /var/lib/apt/lists/*
                         '''
                     }
-                    sh '''
-                      java -version
-                    '''
                 } 
             }
         }
@@ -62,11 +59,15 @@ pipeline {
         stage('SAST - SonarQube') {
             steps {
                 sh '''
+                   java -version
+                '''
+                sh 'echo $SONAR_SCANNER_HOME'
+                sh '''
                 $SONAR_SCANNER_HOME/bin/sonar-scanner \
-               -Dsonar.projectKey=grad-project \
-               -Dsonar.sources=. \
-               -Dsonar.host.url=http://localhost:9000 \
-               -Dsonar.login=sqp_29a9e875d0f356d9d68b052da107ff8142d9e05f
+                   -Dsonar.projectKey=grad-project \
+                   -Dsonar.sources=. \
+                   -Dsonar.host.url=http://localhost:9000 \
+                   -Dsonar.login=sqp_4e0224c2c2a423ba35784092cae93054f5993bd0
                 '''
             }
         } 
