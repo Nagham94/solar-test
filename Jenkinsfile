@@ -63,10 +63,10 @@ pipeline {
             steps {
                 sh '''
                 $SONAR_SCANNER_HOME/bin/sonar-scanner \
-                -Dsonar.projectKey=grad-project \
-                -Dsonar.sources=. \
-                -Dsonar.host.url=http://localhost:9000 \
-                -Dsonar.login=sqp_29a9e875d0f356d9d68b052da107ff8142d9e05f
+               -Dsonar.projectKey=grad-project \
+               -Dsonar.sources=. \
+               -Dsonar.host.url=http://localhost:9000 \
+               -Dsonar.login=sqp_29a9e875d0f356d9d68b052da107ff8142d9e05f
                 '''
             }
         } 
