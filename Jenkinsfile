@@ -58,8 +58,7 @@ pipeline {
             }
         }
         
-        stage('Dependency Scanning') {
-            stage('OWASP Dependency Check') {
+        stage('Dependency Scanning - OWASP Dependency Check') {
                         steps {
                           // check of all vulnerabilities (high, low, medium, critical)
                           dependencyCheck additionalArguments: '''
@@ -78,7 +77,6 @@ pipeline {
                         // to publish the test report in the UI of blue ocean
                         junit allowEmptyResults: true, keepProperties: true, stdioRetention: '', testResults: 'dependency-check-junit.xml'
                        }
-                    }
         }
 
         stage('SAST - SonarQube') {
